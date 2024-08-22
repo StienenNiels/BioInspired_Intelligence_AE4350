@@ -3,7 +3,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class Neural_network(nn.Module): # inherit the nn.Module class for backpropagation and training functionalities
+class Neural_network(nn.Module): 
+    # inherit the nn.Module class for backpropagation and training functionalities
     
     # Create the layers of the network, and initialize the parameters
     def __init__(self, input_dim: int, output_dim: int):

@@ -1,11 +1,11 @@
 import gymnasium as gym
 from stable_baselines3 import SAC
-from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv, VecMonitor, VecNormalize
+from stable_baselines3.common.vec_env import SubprocVecEnv, VecMonitor
 from stable_baselines3.common.vec_env.base_vec_env import VecEnv, VecEnvStepReturn, VecEnvWrapper
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from IPython.display import clear_output
+# from IPython.display import clear_output
 import os
 
 class VecPendulumRewardWrapper(VecEnvWrapper):

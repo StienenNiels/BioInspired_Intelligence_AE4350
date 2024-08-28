@@ -21,7 +21,9 @@ class VecPendulumRewardWrapper(VecEnvWrapper):
 
     def step_wait(self) -> VecEnvStepReturn:
         obs, reward, done, info = self.venv.step_wait()
-        reward = 1 - obs[:, 0]**2 - obs[:, 1]**2  ######## MODIFY FOR REWARD FUNCTION
+        reward = 1                                                            ######## MODIFY FOR REWARD FUNCTION
+        reward = 1 -obs[:,0]**2 -obs[:,1]**2                                  ######## MODIFY FOR REWARD FUNCTION
+        reward = 1 -obs[:,0]**2 -obs[:,1]**2 -obs[:,2]**2/10 -obs[:,3]**2/10  ######## MODIFY FOR REWARD FUNCTION
         return obs, reward, done, info
 
 
@@ -121,7 +123,10 @@ def CollectData(model_name: str, num_episodes=10):
 
         def step(self, action):
             obs, reward, terminated, truncated, info = self.env.step(action)
-            reward = 1 - obs[0]**2 - obs[1]**2  ######## MODIFY FOR REWARD FUNCTION
+            reward = 1                                                    ######## MODIFY FOR REWARD FUNCTION
+            reward = 1 -obs[0]**2 -obs[1]**2                              ######## MODIFY FOR REWARD FUNCTION
+            reward = 1 -obs[0]**2 -obs[1]**2 -obs[2]**2/10 -obs[3]**2/10  ######## MODIFY FOR REWARD FUNCTION
+        
             return obs, reward, terminated, truncated, info
 
     env = gym.make("InvertedPendulum-v4", render_mode='rgb_array')
